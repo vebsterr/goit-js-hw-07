@@ -5,7 +5,6 @@ const galleryContainer = document.querySelector('.gallery')
 const galleryMarkup = makeItemGalleryMarkup(galleryItems)
 
 galleryContainer.innerHTML = galleryMarkup
-galleryContainer.addEventListener('click', onClickInPreviewPicture)
 
 function makeItemGalleryMarkup(listOfImages) {
    return listOfImages
@@ -19,19 +18,9 @@ function makeItemGalleryMarkup(listOfImages) {
       .join('')
 }
 
-function onClickInPreviewPicture(evt) {
-   evt.preventDefault()
-
-   const isImgEl = evt.target.classList.contains('gallery__image')
-
-   if (!isImgEl) {
-      return
-   }
-
-   const lightbox = new SimpleLightbox('.gallery a', {
-      docClose: true,
-      captionsData: 'alt',
-      captionPosition: 'bottom',
-      captionDelay: 250,
-   })
-}
+const lightbox = new SimpleLightbox('.gallery a', {
+   docClose: true,
+   captionsData: 'alt',
+   captionPosition: 'bottom',
+   captionDelay: 250,
+})
